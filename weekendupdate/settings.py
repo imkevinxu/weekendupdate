@@ -205,7 +205,7 @@ if 'PRODUCTION' not in os.environ:
 else:
     try:
         import dj_database_url
-        DATABASES['default'] = dj_database_url.config(default='postgres://localhost')
+        DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
         DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
     except ImportError:
