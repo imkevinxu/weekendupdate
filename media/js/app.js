@@ -1,8 +1,6 @@
 ;(function ($, window, undefined) {
 
   /* Javascript masterminded by Kevin Xu <kevin@imkevinxu.com> */
-
-
   $('.signup form').each(function() {
     var form = $(this);
     form.on('submit', function(e) {
@@ -16,6 +14,9 @@
         data: form.serialize(),
         success: function (data) {
           if (data['status'] === "success") {
+            if (form.data('position') === "bottom") {
+              $('.top.signup form').fadeOut();
+            }
             form.fadeOut();
             form.next().delay(400).fadeIn();
           } else {

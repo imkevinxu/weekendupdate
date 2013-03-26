@@ -149,3 +149,67 @@ footer {
     position: absolute;
     top: -9999px;
 }
+
+/* -----------------------------------------
+   RESPONSIVE STYLES
+----------------------------------------- */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    header, footer {
+        text-align: center;
+    }
+
+    footer {
+        margin: 0 0 20px !important;
+    }
+
+    #hero h1 {
+        font-size: 24px;
+    }
+
+    #newsletter {
+        margin: 0;
+    }
+
+    .signup {
+        margin: 0px 20px;
+    }
+
+    .signup .type .name {
+        position: relative;
+        top: 10px;
+        left: 5px;
+    }
+
+    .mobile-block {
+        display: block;
+        width: 100%;
+    }
+
+    .submit {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    header, footer {
+        text-align: center;
+    }
+
+    footer {
+        margin: 0 0 20px !important;
+    }
+
+    header h1 {
+        font-size: 55px;
+        margin-bottom: 0;
+    }
+
+    #hero h1 {
+        font-size: 34px;
+    }
+
+    #newsletter {
+        margin: 0;
+    }
+}

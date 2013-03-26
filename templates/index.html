@@ -50,10 +50,10 @@
                 <input type="radio" name="type" value="recruiter" />
 
                 <div class="row">
-                    <div class="large-9 inline-block" style="margin-right: -5px">
+                    <div class="large-9 mobile-block inline-block" style="margin-right: -5px">
                         <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
                     </div>
-                    <div class="large-3 tr inline-block">
+                    <div class="large-3 mobile-block tr inline-block">
                         <input type="submit" class="button submit" value="Sign Up" />
                     </div>
                 </div>
@@ -83,7 +83,7 @@
 
 <div class="row">
     <div class="large-6 signup bottom">
-        <form action="{% url signup %}" method="post">{% csrf_token %}
+        <form action="{% url signup %}" method="post" data-position="bottom">{% csrf_token %}
             <div class="row">
                 <div class="large-12">
                     <input type="email" name="email" class="email" placeholder="Email address" required />
@@ -117,10 +117,10 @@
                 <input type="radio" name="type" value="recruiter" />
 
                 <div class="row">
-                    <div class="large-9 inline-block" style="margin-right: -5px">
+                    <div class="large-9 mobile-block inline-block" style="margin-right: -5px">
                         <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
                     </div>
-                    <div class="large-3 tr inline-block">
+                    <div class="large-3 mobile-block tr inline-block">
                         <input type="submit" class="button submit" value="Sign Up" />
                     </div>
                 </div>
