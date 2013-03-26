@@ -1,0 +1,8 @@
+*~
+*.pyc
+*.swp
+.DS_Store
+.env
+.env.dev
+db.sql
+notes.txt
