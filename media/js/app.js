@@ -3,27 +3,29 @@
   /* Javascript masterminded by Kevin Xu <kevin@imkevinxu.com> */
 
 
-  $('.signup form').on('submit', function(e) {
-    e.preventDefault();
+  $('.signup form').each(function() {
     var form = $(this);
-    form.next().fadeOut();
-    form.next().next().fadeOut();
-    form.find('.loader').fadeIn();
-    $.ajax({
-      type: 'POST',
-      url: form.attr('action'),
-      data: form.serialize(),
-      success: function (data) {
-        if (data['status'] === "success") {
-          form.fadeOut();
-          form.next().delay(400).fadeIn();
-        } else {
+    form.on('submit', function(e) {
+      e.preventDefault();
+      form.next().fadeOut();
+      form.next().next().fadeOut();
+      form.find('.loader').fadeIn();
+      $.ajax({
+        type: 'POST',
+        url: form.attr('action'),
+        data: form.serialize(),
+        success: function (data) {
+          if (data['status'] === "success") {
+            form.fadeOut();
+            form.next().delay(400).fadeIn();
+          } else {
+            form.next().next().fadeIn();
+          }
+        },
+        error: function (data) {
           form.next().next().fadeIn();
         }
-      },
-      error: function (data) {
-        form.next().next().fadeIn();
-      }
+      });
     });
   });
 

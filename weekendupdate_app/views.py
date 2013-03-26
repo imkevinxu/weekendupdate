@@ -29,13 +29,18 @@ def index(request):
     return render(request, "index.html", locals())
 
 def signup(request):
-    if request.is_ajax() and 'email' in request.POST and ('type' in request.POST or 'type_other' in request.POST):
-        email_address = request.POST['email']
-        type_str = request.POST['type'] if 'type' in request.POST else request.POST['type_other']
-        list = mailchimp.utils.get_connection().get_list_by_id(MAILCHIMP_LIST_ID)
-        list.subscribe(email_address,{'EMAIL': email_address, 'TYPE': type_str})
-        results = json.dumps({ 'status' : 'success' }, ensure_ascii=False)
-        return HttpResponse(results, mimetype='application/json')
-    else:
-        results = json.dumps({ 'status' : 'failure' }, ensure_ascii=False)
-        return HttpResponse(results, mimetype='application/json')
+    if request.is_ajax() and 'email' in request.POST and \
+    (('type' in request.POST and request.POST['type'] != '') or \
+    ('type_other' in request.POST and request.POST['type_other'] != '')):
+        try:
+            email_address = request.POST['email']
+            type_str = request.POST['type'] if 'type' in request.POST else request.POST['type_other']
+            list = mailchimp.utils.get_connection().get_list_by_id(MAILCHIMP_LIST_ID)
+            list.subscribe(email_address,{'EMAIL': email_address, 'TYPE': type_str})
+            results = json.dumps({ 'status' : 'success' }, ensure_ascii=False)
+            return HttpResponse(results, mimetype='application/json')
+        except Exception, e:
+            print e
+
+    results = json.dumps({ 'status' : 'failure' }, ensure_ascii=False)
+    return HttpResponse(results, mimetype='application/json')

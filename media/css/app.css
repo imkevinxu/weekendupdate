@@ -65,14 +65,15 @@ footer {
     text-align: center;
 }
 
-#hn {
+.hn {
     font-weight: 700;
     color: #FC6821;
 }
 
 #newsletter {
     background-color: #ECF0F1;
-    padding: 20px 0;
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 #newsletter img {
@@ -80,7 +81,7 @@ footer {
 }
 
 #cta {
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -89,7 +90,7 @@ footer {
 ----------------------------------------- */
 
 .signup {
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 .signup .type {
