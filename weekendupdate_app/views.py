@@ -36,7 +36,7 @@ def signup(request):
             email_address = request.POST['email']
             type_str = request.POST['type'] if 'type' in request.POST else request.POST['type_other']
             list = mailchimp.utils.get_connection().get_list_by_id(MAILCHIMP_LIST_ID)
-            list.subscribe(email_address,{'EMAIL': email_address, 'TYPE': type_str})
+            list.subscribe(email_address, {'EMAIL': email_address, 'TYPE': type_str}, email_type='html')
             results = json.dumps({ 'status' : 'success' }, ensure_ascii=False)
             return HttpResponse(results, mimetype='application/json')
         except Exception, e:
