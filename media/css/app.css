@@ -65,6 +65,11 @@ footer {
     text-align: center;
 }
 
+#hn {
+    font-weight: 700;
+    color: #FC6821;
+}
+
 #newsletter {
     background-color: #ECF0F1;
     padding: 20px 0;
