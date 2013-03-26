@@ -6,26 +6,127 @@
 
 {% block content %}
 
-<div id="main" class="row">
-    <div class="twelve columns">
-        <h2>Thanks for using Django Project Builder!</h2>
-        <blockquote>
-            <h5 style="margin-top: 0">You are using a custom fork by <a href="https://github.com/imkevinxu" target="_blank">imkevinxu</a></h5>
+<div id="hero" class="row">
+    <div class="large-12">
 
-            <li style="margin-left:35px"><h5><a href="http://jinja.pocoo.org/docs/" target="_blank">Jinja2</a> templating engine enabled with <a href="https://github.com/coffin/coffin" target="_blank">Coffin</a></h5></li>
+        <h1>Stay current on the latest open-source inventions and side projects from HN</h1>
 
-            <li style="margin-left:35px"><h5><a href="https://github.com/django-debug-toolbar/django-debug-toolbar" target="_blank">Django Debug Toolbar</a> enabled</h5></li>
+    </div>
+</div>
 
-            <li style="margin-left:35px"><h5><a href="https://docs.djangoproject.com/en/dev/topics/auth/#using-bcrypt-with-django" target="_blank">bcrypt</a> password hashing enabled</h5></li>
+<div class="row">
+    <div class="large-6 signup">
+        <form action="{% url signup %}" method="post">{% csrf_token %}
+            <div class="row">
+                <div class="large-12">
+                    <input type="email" name="email" class="email" placeholder="Email address" required />
+                </div>
+            </div>
 
-            <li style="margin-left:35px"><h5><a href="https://www.djangoproject.com/" target="_blank">Django</a> 1.4 with <a href="http://south.readthedocs.org/en/0.7.6/index.html" target="_blank">South</a> database migration</h5></li>
+            <div class="more-info" style="display:none;">
+                <div class="row">
+                    <div class="large-12">
+                        <h3>What do you do?</h3>
+                    </div>
+                </div>
 
-            <p>It's highly experimental and constantly being updated with random best practices so check out the fork on <a href="https://github.com/imkevinxu/django-projectbuilder" target="_blank">Github</a> or email Kevin at <a href="mailto:kevin@imkevinxu.com?Subject=Awesome Django Project Builder Fork!" target="_blank">kevin@imkevinxu.com</a> and let him know what you think!</p>
-        </blockquote>
+                <div class="row">
+                    <div class="large-4 type" data-type="hacker">
+                        <img src="{{ MEDIA_URL }}images/laptop.png" alt="">
+                        <div class="name"><h6>Hacker</h6></div>
+                    </div>
+                    <div class="large-4 type" data-type="designer">
+                        <img src="{{ MEDIA_URL }}images/paintbrush.png" alt="">
+                        <div class="name"><h6>Designer</h6></div>
+                    </div>
+                    <div class="large-4 type" data-type="recruiter">
+                        <img src="{{ MEDIA_URL }}images/person.png" alt="">
+                        <div class="name"><h6>Recruiter</h6></div>
+                    </div>
+                </div>
 
-        <br/>
-        <h5>Original DPB built by the kickass people at <a href="http://builtbyptm.com/blog/announcing-django-project-builder-v01/" target="_blank">PTM</a></h5>
-        <p>Feel free to contribute improvements to the original project on <a href="https://github.com/prototypemagic/django-projectbuilder" target="_blank">the GitHub page</a></p>
+                <input type="radio" name="type" value="hacker" />
+                <input type="radio" name="type" value="designer" />
+                <input type="radio" name="type" value="recruiter" />
+
+                <div class="row">
+                    <div class="large-9 inline-block" style="margin-right: -5px">
+                        <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
+                    </div>
+                    <div class="large-3 tr inline-block">
+                        <input type="submit" class="button submit" value="Sign Up" />
+                    </div>
+                </div>
+                <img src="{{ MEDIA_URL }}images/loader.gif" class="loader" style="display:none;">
+            </div>
+        </form>
+        <h3 style="display: none;">Thanks for signing up!<br/>Please check your email to confirm.</h3>
+        <h3 style="display: none;">Sorry there appears to be an error :/<br/>Please try again.</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="twelve columns center">
+        <img src="{{ MEDIA_URL }}images/newsletter.png" id="newsletter" alt="">
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-12 center">
+
+        <h1>Sign Up to get this newsletter now</h1>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-6 signup">
+        <form action="{% url signup %}" method="post">{% csrf_token %}
+            <div class="row">
+                <div class="large-12">
+                    <input type="email" name="email" class="email" placeholder="Email address" required />
+                </div>
+            </div>
+
+            <div class="more-info">
+                <div class="row">
+                    <div class="large-12">
+                        <h3>What do you do?</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-4 type" data-type="hacker">
+                        <img src="{{ MEDIA_URL }}images/laptop.png" alt="">
+                        <div class="name"><h6>Hacker</h6></div>
+                    </div>
+                    <div class="large-4 type" data-type="designer">
+                        <img src="{{ MEDIA_URL }}images/paintbrush.png" alt="">
+                        <div class="name"><h6>Designer</h6></div>
+                    </div>
+                    <div class="large-4 type" data-type="recruiter">
+                        <img src="{{ MEDIA_URL }}images/person.png" alt="">
+                        <div class="name"><h6>Recruiter</h6></div>
+                    </div>
+                </div>
+
+                <input type="radio" name="type" value="hacker" />
+                <input type="radio" name="type" value="designer" />
+                <input type="radio" name="type" value="recruiter" />
+
+                <div class="row">
+                    <div class="large-9 inline-block" style="margin-right: -5px">
+                        <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
+                    </div>
+                    <div class="large-3 tr inline-block">
+                        <input type="submit" class="button submit" value="Sign Up" />
+                    </div>
+                </div>
+                <img src="{{ MEDIA_URL }}images/loader.gif" class="loader" style="display:none;">
+            </div>
+        </form>
+        <h3 style="display: none;">Thanks for signing up!<br/>Please check your email to confirm.</h3>
+        <h3 style="display: none;">Sorry there appears to be an error :/<br/>Please try again.</h3>
     </div>
 </div>
 

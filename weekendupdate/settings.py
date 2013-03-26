@@ -108,6 +108,8 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS' : False,
 }
 
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
+
 from django.core.urlresolvers import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
@@ -141,6 +143,7 @@ INSTALLED_APPS = (
     'south',
     'coffin',
     'debug_toolbar',
+    'mailchimp',
     'weekendupdate_app',
 
 )

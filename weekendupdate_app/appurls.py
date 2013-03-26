@@ -11,6 +11,7 @@ def smartlogin(request, **kwargs):
 
 urlpatterns = patterns('weekendupdate_app.views',
     url(r'^$', 'index', name='index'),
+    url(r'^signup/$', 'signup', name='signup'),
     url(r'^login/$', smartlogin, kwargs=dict(template_name='login.html'), name='login'),
     url(r'^logout/$', logout, kwargs=dict(next_page='/'), name='logout'),
 

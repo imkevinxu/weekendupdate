@@ -3,7 +3,47 @@
   /* Javascript masterminded by Kevin Xu <kevin@imkevinxu.com> */
 
 
+  $('.signup form').on('submit', function(e) {
+    e.preventDefault();
+    var form = $(this);
+    form.next().fadeOut();
+    form.next().next().fadeOut();
+    form.find('.loader').fadeIn();
+    $.ajax({
+      type: 'POST',
+      url: form.attr('action'),
+      data: form.serialize(),
+      success: function (data) {
+        if (data['status'] === "success") {
+          form.fadeOut();
+          form.next().delay(400).fadeIn();
+        } else {
+          form.next().next().fadeIn();
+        }
+      },
+      error: function (data) {
+        form.next().next().fadeIn();
+      }
+    });
+  });
 
+  $('.email').on('focus', function() {
+    $('.more-info').fadeIn();
+  });
+
+  $('.type').each(function() {
+    $(this).on('click', function() {
+      $('.type_other').val('');
+      $('.type').removeClass('focus');
+      $(this).toggleClass('focus');
+      $("input[value="+$(this).data('type')+"]").click();
+    });
+  });
+
+  $('.type_other').on('focus', function() {
+    $('.type').removeClass('focus');
+    $("input[type=radio]").prop('checked', false);
+  });
 
 
   /* ZURB Foundation Javascript Initialization */
@@ -42,5 +82,41 @@
       }, 0);
     });
   }
+
+  /* -----------------------------------------
+     AUTO-SETS CSRF TOKEN FOR AJAX CALLS
+  ----------------------------------------- */
+
+  // Acquiring CSRF token and setting it to X-CSRFToken header for AJAX POST Request
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  var csrftoken = getCookie('csrftoken');
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+
+  $.ajaxSetup({
+    crossDomain: false, // obviates need for sameOrigin test
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type)) {
+        xhr.setRequestHeader('X-CSRFToken', csrftoken);
+      }
+    }
+  });
 
 })(jQuery, this);
