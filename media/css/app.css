@@ -1,5 +1,7 @@
 /* Artfully masterminded by Kevin Xu <kevin@imkevinxu.com> */
 
+@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700");
+
 /* -----------------------------------------
    SHARED STYLES
 ----------------------------------------- */
@@ -28,13 +30,14 @@ html, body {
 }
 
 body {
-    /*font-family: 'Source Sans Pro', sans-serif;*/
+    font-family: 'Roboto Condensed', sans-serif;
     color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    /*font-family: 'Crimson Text', serif;*/
+    font-family: 'Roboto Condensed', sans-serif;
     color: #222;
+    font-weight: 300;
 }
 
 /* -----------------------------------------
@@ -42,7 +45,11 @@ h1, h2, h3, h4, h5, h6 {
 ----------------------------------------- */
 
 header {
-    padding: 20px 0;
+    padding: 20px 0 0;
+}
+
+header h1 {
+    font-weight: 700;
 }
 
 footer {
@@ -59,7 +66,17 @@ footer {
 }
 
 #newsletter {
-    border: 2px solid #ECF0F1;
+    background-color: #ECF0F1;
+    padding: 20px 0;
+}
+
+#newsletter img {
+    border: 2px solid #D6DADC;
+}
+
+#cta {
+    margin-top: 40px;
+    text-align: center;
 }
 
 /* -----------------------------------------
