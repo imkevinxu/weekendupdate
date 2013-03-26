@@ -44,12 +44,18 @@ h1, h2, h3, h4, h5, h6 {
    HEADER & FOOTER STYLES
 ----------------------------------------- */
 
+header, footer {
+    text-align: center;
+}
+
 header {
     padding: 20px 0 0;
 }
 
 header h1 {
     font-weight: 700;
+    font-size: 80px;
+    margin-bottom: 0;
 }
 
 footer {
@@ -155,10 +161,6 @@ footer {
 ----------------------------------------- */
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    header, footer {
-        text-align: center;
-    }
-
     footer {
         margin: 0 0 20px !important;
     }
@@ -192,10 +194,6 @@ footer {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    header, footer {
-        text-align: center;
-    }
-
     footer {
         margin: 0 0 20px !important;
     }
