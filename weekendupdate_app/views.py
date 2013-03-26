@@ -23,7 +23,7 @@ try:
 except ImportError:
     import simplejson as json
 
-MAILCHIMP_LIST_ID = '46624a7987'
+MAILCHIMP_LIST_ID = '46624a7987' # Weekendend Update Newsletter List
 
 def index(request):
     return render(request, "index.html", locals())

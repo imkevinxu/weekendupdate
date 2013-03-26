@@ -161,16 +161,21 @@ footer {
 ----------------------------------------- */
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    header h1 {
+        font-size: 44px;
+    }
+
     footer {
         margin: 0 0 20px !important;
     }
 
     #hero h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     #newsletter {
         margin: 0;
+        padding: 20px 0;
     }
 
     .signup {
@@ -194,13 +199,13 @@ footer {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    footer {
-        margin: 0 0 20px !important;
-    }
-
     header h1 {
         font-size: 55px;
         margin-bottom: 0;
+    }
+
+    footer {
+        margin: 0 0 20px !important;
     }
 
     #hero h1 {
