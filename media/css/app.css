@@ -64,6 +64,29 @@ footer {
 }
 
 /* -----------------------------------------
+   SHARE STYLES
+----------------------------------------- */
+
+#share {
+    height: 50px;
+}
+
+#share .fb-like {
+    top: -38px;
+    right: 5px;
+}
+
+#share .twitter-share-button {
+    height: 54px !important;
+    width: 87px !important;
+}
+
+#share #___plusone_0 {
+    position: relative;
+    top: -34px;
+}
+
+/* -----------------------------------------
    SECTION STYLES
 ----------------------------------------- */
 
