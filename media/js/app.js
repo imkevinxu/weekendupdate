@@ -27,7 +27,7 @@
     });
   });
 
-  $('.email').on('focus', function() {
+  $('.top .email').on('focus', function() {
     $('.more-info').fadeIn();
   });
 
