@@ -154,6 +154,15 @@
     </div>
 </div>
 
+<div id="archive" class="row">
+    <div class="large-6 margin-center">
+        <h3>Previous Newsletters</h3>
+        {% for a in archives %}
+            <a href="{{ a.link }}" target="_blank">#{{ a.edition }}</a>{% if not loop.last %}&nbsp;|&nbsp;{% endif %}
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
 
 {% block javascript %}{% endblock %}

@@ -13,8 +13,9 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-# class Data(Base):
-#     data = models.CharField(blank=True, null=True, max_length=255)
+class Archive(Base):
+    link = models.URLField(max_length=255)
+    edition = models.IntegerField(default=0)
 
-#     def __unicode__(self):
-#         return u'%s' % (self.data)
+    def __unicode__(self):
+        return u'Weekend Update #%s' % (self.edition)

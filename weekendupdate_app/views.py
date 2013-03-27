@@ -26,6 +26,7 @@ except ImportError:
 MAILCHIMP_LIST_ID = '46624a7987' # Weekendend Update Newsletter List
 
 def index(request):
+    archives = Archive.objects.all()
     return render(request, "index.html", locals())
 
 def signup(request):
