@@ -14,8 +14,9 @@ class Base(models.Model):
         abstract = True
 
 class Archive(Base):
-    link = models.URLField(max_length=255)
-    edition = models.IntegerField(default=0)
+    link        = models.URLField(max_length=255)
+    edition     = models.IntegerField(default=0)
+    description = models.CharField(max_length=255, blank=True, null=True)
 
     def __unicode__(self):
         return u'Weekend Update #%s' % (self.edition)
