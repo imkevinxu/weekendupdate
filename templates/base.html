@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{ MEDIA_URL }}images/apple-touch-icon.png" />
 
     <!-- Facebook Meta Data -->
-    <meta property="og:url" content="http://www.weekendupdate.me/" />
+    <meta property="og:url" content="http://www.weekendupdate.me{{ request.get_full_path() }}" />
     <meta property="og:title" content="{% block fb_title %}Weekend Update{% endblock %}" />
     <meta property="og:description" content="{% block fb_description %}Stay current on the latest open-source inventions and side projects from HN. Each week we'll be sending you a curated, structured list of 7 or more open source side projects that have been featured on Hacker News.{% endblock %}" />
     <meta property="og:image" content="http://www.weekendupdate.me{{ MEDIA_URL }}images/favicon.png" />
