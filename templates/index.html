@@ -3,8 +3,16 @@
 
 {% block content %}
 
+<header class="row">
+    <div class="large-12 columns">
+        <a href="{% url index %}">
+            <h1>Weekend Update</h1>
+        </a>
+    </div>
+</header>
+
 <div id="hero" class="row">
-    <div class="large-12">
+    <div class="large-12 columns">
 
         <h1>Stay current on the latest open-source inventions<br/>&amp; side projects from <span class="hn">HN</span></h1>
 
@@ -12,7 +20,7 @@
 </div>
 
 <div id="share" class="row">
-    <div class="large-12 center">
+    <div class="large-12 columns center">
 
         <div class="fb-like" data-href="http://www.weekendupdate.me/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
 
@@ -32,31 +40,31 @@
 </div>
 
 <div class="row">
-    <div class="large-6 signup top">
+    <div class="large-6 columns large-centered signup top">
         <form action="{% url signup %}" method="post">{% csrf_token %}
             <div class="row">
-                <div class="large-12">
+                <div class="large-12 columns">
                     <input type="email" name="email" class="email" placeholder="Email address" required />
                 </div>
             </div>
 
             <div class="more-info" style="display:none;">
                 <div class="row">
-                    <div class="large-12">
+                    <div class="large-12 columns">
                         <h3>What do you do?</h3>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="large-4 type" data-type="hacker">
+                <div class="row connected">
+                    <div class="large-4 columns type" data-type="hacker">
                         <img src="{{ MEDIA_URL }}images/laptop.png" alt="Laptop">
                         <div class="name"><h6>Hacker</h6></div>
                     </div>
-                    <div class="large-4 type" data-type="designer">
+                    <div class="large-4 columns type" data-type="designer">
                         <img src="{{ MEDIA_URL }}images/paintbrush.png" alt="Paintbrush">
                         <div class="name"><h6>Designer</h6></div>
                     </div>
-                    <div class="large-4 type" data-type="recruiter">
+                    <div class="large-4 columns type" data-type="recruiter">
                         <img src="{{ MEDIA_URL }}images/person.png" alt="Person">
                         <div class="name"><h6>Recruiter</h6></div>
                     </div>
@@ -66,7 +74,7 @@
                 <input type="radio" name="type" value="designer" />
                 <input type="radio" name="type" value="recruiter" />
 
-                <div class="row">
+                <div class="row connected">
                     <div class="large-9 mobile-block inline-block" style="margin-right: -5px">
                         <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
                     </div>
@@ -93,7 +101,7 @@
 </div>
 
 <div id="cta" class="row">
-    <div class="large-12">
+    <div class="large-12 columns">
 
         <h1>Sign up to get this newsletter now</h1>
 
@@ -101,31 +109,31 @@
 </div>
 
 <div class="row">
-    <div class="large-6 signup bottom">
+    <div class="large-6 columns large-centered signup bottom">
         <form action="{% url signup %}" method="post" data-position="bottom">{% csrf_token %}
             <div class="row">
-                <div class="large-12">
+                <div class="large-12 columns">
                     <input type="email" name="email" class="email" placeholder="Email address" required />
                 </div>
             </div>
 
             <div class="more-info">
                 <div class="row">
-                    <div class="large-12">
+                    <div class="large-12 columns">
                         <h3>What do you do?</h3>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="large-4 type" data-type="hacker">
+                <div class="row connected">
+                    <div class="large-4 columns type" data-type="hacker">
                         <img src="{{ MEDIA_URL }}images/laptop.png" alt="Laptop">
                         <div class="name"><h6>Hacker</h6></div>
                     </div>
-                    <div class="large-4 type" data-type="designer">
+                    <div class="large-4 columns type" data-type="designer">
                         <img src="{{ MEDIA_URL }}images/paintbrush.png" alt="Paintbrush">
                         <div class="name"><h6>Designer</h6></div>
                     </div>
-                    <div class="large-4 type" data-type="recruiter">
+                    <div class="large-4 columns type" data-type="recruiter">
                         <img src="{{ MEDIA_URL }}images/person.png" alt="Person">
                         <div class="name"><h6>Recruiter</h6></div>
                     </div>
@@ -135,7 +143,7 @@
                 <input type="radio" name="type" value="designer" />
                 <input type="radio" name="type" value="recruiter" />
 
-                <div class="row">
+                <div class="row connected">
                     <div class="large-9 mobile-block inline-block" style="margin-right: -5px">
                         <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
                     </div>
@@ -152,14 +160,20 @@
 </div>
 
 <div id="archive" class="row">
-    <div class="large-6 margin-center">
+    <div class="large-6 columns large-centered">
         <h3>Previous Newsletters</h3>
         <p>
             {% for a in archives %}
-                <a href="{{ a.link }}" target="_blank">#{{ a.edition }}</a>{% if not loop.last %}&nbsp;|&nbsp;{% endif %}
+                <a href="{% url archive a.edition %}">#{{ a.edition }}</a>{% if not loop.last %}&nbsp;|&nbsp;{% endif %}
             {% endfor %}
         </p>
     </div>
 </div>
+
+<footer class="row">
+    <div class="large-12 columns">
+        <h3>&copy; 2013 Weekend Update</h3>
+    </div>
+</footer>
 
 {% endblock %}

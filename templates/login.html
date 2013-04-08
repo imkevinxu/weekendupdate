@@ -3,8 +3,16 @@
 
 {% block content %}
 
+<header class="row">
+    <div class="large-12">
+        <a href="{% url index %}">
+            <h1>Weekend Update</h1>
+        </a>
+    </div>
+</header>
+
 <div id="login" class="row">
-    <div class="large-5 margin-center">
+    <div class="large-5 columns large-centered">
         <h2>Welcome</h2>
 
         <form action="{% url login %}" method="post">{% csrf_token %}
@@ -17,5 +25,11 @@
 
     </div>
 </div>
+
+<footer class="row">
+    <div class="large-12">
+        <h3>&copy; 2013 Weekend Update</h3>
+    </div>
+</footer>
 
 {% endblock %}

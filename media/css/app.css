@@ -119,8 +119,9 @@ footer {
    SIGNUP STYLES
 ----------------------------------------- */
 
-.signup {
-    margin: 0px auto;
+.signup .connected {
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
 }
 
 .signup .type {
@@ -135,7 +136,6 @@ footer {
     font-size: 0.875em;
     padding: 0.5em;
     height: 120px;
-    width: 32.8% !important;
     -webkit-transition: all 0.15s linear;
     -moz-transition: all 0.15s linear;
     transition: all 0.15s linear;
@@ -175,9 +175,59 @@ footer {
     font-size: 20px
 }
 
+.signup input[type=text] {
+    width: 99.5%;
+}
+
 .signup input[type=radio] {
     position: absolute;
     top: -9999px;
+}
+
+.signup input[type=submit] {
+    width: 100%;
+    position: relative;
+    top: -1px;
+}
+
+/* -----------------------------------------
+   ARCHIVE STYLES
+----------------------------------------- */
+
+#frame {
+    border-bottom: 2px solid #D6DADC;
+}
+
+#frame h1 {
+    margin-bottom: 15px;
+}
+
+#frame a {
+    color: inherit;
+}
+
+#frame .signup {
+    position: relative;
+    top: 18px;
+}
+
+#frame .signup .more-info {
+    position: relative;
+    top: -10px;
+}
+
+#frame .signup h2.thanks {
+    position: relative;
+    top: -10px;
+    margin-bottom: 30px;
+}
+
+#frame .signup h3.sorry {
+    margin-bottom: 40px;
+}
+
+iframe#archive {
+    width: 100%;
 }
 
 /* -----------------------------------------

@@ -51,14 +51,6 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <header class="row">
-        <div class="large-12">
-            <a href="{% url index %}">
-                <h1>Weekend Update</h1>
-            </a>
-        </div>
-    </header>
-
     <!-- PROMPT IE 6 USERS TO INSTALL CHROME FRAME. REMOVE THIS IF YOU SUPPORT IE 6.
     chromium.org/developers/how-tos/chrome-frame-getting-started -->
     <!--[if lt IE 7]><p class="chromeframe center">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -67,12 +59,6 @@
     <!-- Main Content -->
     {% block content %}{% endblock %}
     <!-- End Block -->
-
-    <footer class="row">
-        <div class="large-12">
-            <h3>&copy; 2013 Weekend Update</h3>
-        </div>
-    </footer>
 
     <!-- Included JS Files -->
     <script src="{{ MEDIA_URL }}js/foundation.min.js"></script>

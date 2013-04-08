@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }}{% endblock %}
+{% block meta_description %}Weekend Update #{{ archive.edition }}. {{ super() }}{% endblock %}
+
+{% block content %}
+
+<div id="frame">
+    <div class="row">
+        <div class="large-6 columns">
+            <h1><a href="{% url index %}">Weekend Update #{{ archive.edition }}</a></h1>
+        </div>
+        <div class="large-6 columns signup top">
+            <form action="{% url signup %}" method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <input type="email" name="email" class="email" placeholder="Sign up here with email address" required />
+                    </div>
+                </div>
+
+                <div class="more-info" style="display:none;">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>What do you do?</h3>
+                        </div>
+                    </div>
+
+                    <div class="row connected">
+                        <div class="large-4 columns type" data-type="hacker">
+                            <img src="{{ MEDIA_URL }}images/laptop.png" alt="Laptop">
+                            <div class="name"><h6>Hacker</h6></div>
+                        </div>
+                        <div class="large-4 columns type" data-type="designer">
+                            <img src="{{ MEDIA_URL }}images/paintbrush.png" alt="Paintbrush">
+                            <div class="name"><h6>Designer</h6></div>
+                        </div>
+                        <div class="large-4 columns type" data-type="recruiter">
+                            <img src="{{ MEDIA_URL }}images/person.png" alt="Person">
+                            <div class="name"><h6>Recruiter</h6></div>
+                        </div>
+                    </div>
+
+                    <input type="radio" name="type" value="hacker" />
+                    <input type="radio" name="type" value="designer" />
+                    <input type="radio" name="type" value="recruiter" />
+
+                    <div class="row connected">
+                        <div class="large-9 mobile-block inline-block" style="margin-right: -5px">
+                            <input type="text" name="type_other" class="type_other" placeholder="Other awesome profession" />
+                        </div>
+                        <div class="large-3 mobile-block tr inline-block">
+                            <input type="submit" class="button submit" value="Sign Up" />
+                        </div>
+                    </div>
+                    <img src="{{ MEDIA_URL }}images/loader.gif" class="loader" style="display:none;">
+                </div>
+            </form>
+            <h2 style="display: none;" class="thanks">Thanks for signing up!<br/>Please check your <span class="hn">email</span> to confirm.</h2>
+            <h3 style="display: none;" class="sorry">Sorry there appears to be an error :/<br/>Please try again.</h3>
+        </div>
+    </div>
+</div>
+
+<iframe src="{{archive.link}}" frameborder="0" id="archive"></iframe>
+
+{% endblock %}

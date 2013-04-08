@@ -46,3 +46,12 @@ def signup(request):
 
     results = json.dumps({ 'status' : 'failure' }, ensure_ascii=False)
     return HttpResponse(results, mimetype='application/json')
+
+def archive(request, week_num):
+    try:
+        archive = Archive.objects.get(edition=week_num)
+        return render(request, "archive.html", locals())
+    except Archive.DoesNotExist:
+        pass
+
+    return redirect('index')

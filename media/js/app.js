@@ -48,6 +48,9 @@
     $("input[type=radio]").prop('checked', false);
   });
 
+  var winHeight = $(window).height();
+  $('iframe#archive').height(winHeight - 87);
+
   /* -----------------------------------------
      ZURB FOUNDATION INITIALIZERS
   ----------------------------------------- */
