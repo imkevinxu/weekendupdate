@@ -252,8 +252,12 @@ iframe#archive {
         padding: 20px 0;
     }
 
-    .signup {
-        margin: 0px 20px;
+    .signup .type {
+        width: 33%;
+    }
+
+    .signup .type:first-child {
+        margin-right: 3px;
     }
 
     .signup .type .name {
@@ -276,6 +280,15 @@ iframe#archive {
     header h1 {
         font-size: 55px;
         margin-bottom: 0;
+    }
+
+    .signup .type:first-child {
+        margin-right: 1px;
+    }
+
+    input.button, button.button {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     footer {
