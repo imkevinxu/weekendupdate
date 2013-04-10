@@ -70,6 +70,8 @@ footer {
 
 #share {
     height: 50px;
+    left: 13px;
+    position: relative;
 }
 
 #share .fb-like {
