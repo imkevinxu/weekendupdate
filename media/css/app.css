@@ -213,6 +213,19 @@ footer {
     top: 18px;
 }
 
+#frame .signup input.email {
+    border-color: #D6DADC;
+    width: 0%;
+    opacity: 0;
+    -webkit-transition: width 1.4s ease-out;
+    -moz-transition: width 1.4s ease-out;
+    transition: width 1.4s ease-out;
+}
+
+#frame .signup input.email:focus {
+    border-color: #1ABC9C;
+}
+
 #frame .signup .more-info {
     position: relative;
     top: -10px;

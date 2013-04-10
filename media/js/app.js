@@ -51,6 +51,10 @@
   var winHeight = $(window).height();
   $('iframe#archive').height(winHeight - 87);
 
+  $('iframe#archive').load(function(){
+    $('#frame .signup input.email').css('opacity', 1).css('width', '100%');
+  });
+
   /* -----------------------------------------
      ZURB FOUNDATION INITIALIZERS
   ----------------------------------------- */
