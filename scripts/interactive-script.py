@@ -1,6 +1,11 @@
 import requests
 import re
 
+from jinja2 import Environment, FileSystemLoader
+env = Environment(loader=FileSystemLoader('.'))
+template = env.get_template('mailchimp-template.html')
+
+
 def getInfoFromGithub(githubURL):
 	"""
 	Loads a github URL to extract follower count and location
@@ -52,6 +57,7 @@ class Person(object):
 		self.bio = bio
 
 	def addGithub(self, githubURL):
+		self.github = githubURL
 		followers, location = getInfoFromGithub(githubURL)
 		self.followers = followers
 		if not location:
@@ -113,7 +119,6 @@ def weekendUpdateBuilder():
 		tech = raw_input("Main technology/ies) used in project:  ")
 
 		current = Project(title, summary, hn, github, tech)
-		projects.append(current)
 
 		numPeople = int(raw_input("How many people worked on this project?  "))
 		for i in range(numPeople):
@@ -129,20 +134,18 @@ def weekendUpdateBuilder():
 			person.addTwitter(raw_input("What's their twitter?  "))
 			person.addWebsite(raw_input("What's their personal website?  "))
 
+			current.contributors.append(person)
+
+		projects.append(current)	
 		print "-----------------------------------"
 		print "\n \n"
 	return projects
 
 def main():
 	a = weekendUpdateBuilder()
-	for project in a:
-		print 'project', project.title
-		print 'score', project.score
-		print 'built with', project.technology
-		print 'collaborators:'
-		for person in project.contributors:
-			print person.name
-			print person.twitter
+	num = raw_input("Last question: what project number is this?  ")
+	print "here's your template! \n \n"
+	print template.render(project=a[0], number=num)
 
 def test():
 	while True:
@@ -154,8 +157,8 @@ def test():
 		if moar == "n":
 			break
 
-#main()
-test()
+main()
+#test()
 
 
 

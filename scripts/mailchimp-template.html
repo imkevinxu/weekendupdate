@@ -1,0 +1,25 @@
+<h1 class="null" style="padding-bottom:10px">
+	{{ number }}.
+	&nbsp;
+	<strong><a href="{{ project.github }}" target="_blank">{{ project.title }}</a></strong>
+	<span style="color: #BBB; font-weight: normal">&nbsp;|&nbsp;{{ project.technology }}</span>
+</h1>
+
+<h3 class="null">
+	{{ project.stars }} Stars&nbsp;|&nbsp;{{ project.forks }} Forks&nbsp;|&nbsp;{{ project.upvotes}} HN Upvotes
+</h3>
+<p>
+	{{ project.summary }}
+</p>
+<br />
+{% for creator in project.contributors %}
+<h2 class="null" style="padding-bottom:10px">
+	Creator: <a href="{{ creator.github }}" target="_blank">{{ creator.name }}</a>
+	<span style="color: #BBB; font-weight: normal">&nbsp;|&nbsp;{{ creator.location }}</span>
+</h2>
+<h3 class="null">
+	{{ creator.email }} &nbsp;|&nbsp;<a href="{{ creator.website }}" target="_blank">{{ creator.website }}</a>&nbsp;|&nbsp;<a href="http://twitter.com/{{ creator.twitter }}" target="_blank">@{{ creator.twitter }}</a>&nbsp;|&nbsp;{{ creator.followers }} Github Followers
+</h3>
+<p>{{ creator.bio }}</p>
+<br />
+{% endfor %}
