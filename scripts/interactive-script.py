@@ -6,6 +6,16 @@ env = Environment(loader=FileSystemLoader('.'))
 template = env.get_template('mailchimp-template.html')
 
 
+"""
+TODOS
+-Add read from file input
+-Add a bunch of try's
+	-Accidentally typing a space before a URL breaks it
+-Rewrite with beautifulsoup
+-Escape HTML code in input?
+"""
+
+
 def getInfoFromGithub(githubURL):
 	"""
 	Loads a github URL to extract follower count and location
@@ -111,7 +121,7 @@ def weekendUpdateBuilder():
 		\n 1) Answer the questions that are asked of you \
 		\n 2) If you don't have an answer to a question, just press enter \
 		\n 3) There is no 3. \n\n"
-	for i in range(1):
+	for i in range(7):
 		title = raw_input("What is the name of the %sth project?  " % (i+1))
 		summary = raw_input("Give a brief and funny description  ")
 		hn = raw_input("URL of HN post?  ")
@@ -139,13 +149,15 @@ def weekendUpdateBuilder():
 		projects.append(current)	
 		print "-----------------------------------"
 		print "\n \n"
+
 	return projects
 
 def main():
 	a = weekendUpdateBuilder()
-	num = raw_input("Last question: what project number is this?  ")
+	a = sorted(a, key=lambda project: -project.score)
 	print "here's your template! \n \n"
-	print template.render(project=a[0], number=num)
+	for i in xrange(7):
+		print template.render(project=a[i], number=i+1)
 
 def test():
 	while True:
